@@ -2,10 +2,12 @@ package com.cms.twoactivities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity
 {
+    private static final String LOG_TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -14,8 +16,8 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
     }
 
-    public void lauchSecondActivity(View view)
+    public void launchSecondActivity(View view)
     {
-        
+        Log.d(LOG_TAG, "Button clicked!");
     }
 }
