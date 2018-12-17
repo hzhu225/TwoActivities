@@ -3,7 +3,7 @@ package com.cms.twoactivities;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class SecondAcivity extends AppCompatActivity
+public class SecondActivity extends AppCompatActivity
 {
 
     @Override
