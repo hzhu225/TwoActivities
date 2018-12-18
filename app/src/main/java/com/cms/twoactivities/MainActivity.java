@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity
         messageBox = findViewById(R.id.editText_main);
         headerText = findViewById(R.id.text_header_reply);
         replyText = findViewById(R.id.text_message_reply);
+        Log.d("TwoActivities", "-------");
+        Log.d("TwoActivities", "OnCreate");
     }
 
     public void launchSecondActivity(View view)
@@ -43,7 +45,47 @@ public class MainActivity extends AppCompatActivity
             replyText.setText(reply);
             replyText.setVisibility(View.VISIBLE);
         }
+    }
+
+    @Override
+    public void onStart(){
+        super.onStart();
+        Log.d("TwoActivities", "onStart");
+    }
+
+    @Override
+    protected void onPause()
+    {
+        super.onPause();
+        Log.d("TwoActivities", "onPause");
+    }
+
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        Log.d("TwoActivities", "onResume");
+    }
+
+    @Override
+    protected void onStop()
+    {
+        super.onStop();
+        Log.d("TwoActivities", "onStop");
+    }
 
 
+    @Override
+    protected void onRestart()
+    {
+        super.onRestart();
+        Log.d("TwoActivities", "onRestart");
+    }
+
+    @Override
+    protected void onDestroy()
+    {
+        super.onDestroy();
+        Log.d("TwoActivities", "onDestroy");
     }
 }
