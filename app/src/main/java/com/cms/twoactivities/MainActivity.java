@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity
     private EditText messageBox;
     private TextView headerText;
     private TextView replyText;
+    private static final String LOG_TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -23,9 +24,32 @@ public class MainActivity extends AppCompatActivity
         messageBox = findViewById(R.id.editText_main);
         headerText = findViewById(R.id.text_header_reply);
         replyText = findViewById(R.id.text_message_reply);
-        Log.d("TwoActivities", "-------");
-        Log.d("TwoActivities", "OnCreate");
+
+        Log.d(LOG_TAG, "-------");
+        Log.d(LOG_TAG, "OnCreate");
+
+        if(savedInstanceState != null)
+        {
+            boolean visibility = savedInstanceState.getBoolean("reply_visible");
+            if(visibility)
+            {
+                headerText.setVisibility(View.VISIBLE);
+                replyText.setVisibility(View.VISIBLE);
+                replyText.setText(savedInstanceState.getString("reply_text"));
+            }
+        }
     }
+
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if (headerText.getVisibility() == View.VISIBLE) {
+            outState.putBoolean("reply_visible", true);
+            outState.putString("reply_text",replyText.getText().toString());
+        }
+    }
+
 
     public void launchSecondActivity(View view)
     {
@@ -47,31 +71,35 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+
+
+
+
     @Override
     public void onStart(){
         super.onStart();
-        Log.d("TwoActivities", "onStart");
+        Log.d(LOG_TAG, "onStart");
     }
 
     @Override
     protected void onPause()
     {
         super.onPause();
-        Log.d("TwoActivities", "onPause");
+        Log.d(LOG_TAG, "onPause");
     }
 
     @Override
     protected void onResume()
     {
         super.onResume();
-        Log.d("TwoActivities", "onResume");
+        Log.d(LOG_TAG, "onResume");
     }
 
     @Override
     protected void onStop()
     {
         super.onStop();
-        Log.d("TwoActivities", "onStop");
+        Log.d(LOG_TAG, "onStop");
     }
 
 
@@ -79,13 +107,13 @@ public class MainActivity extends AppCompatActivity
     protected void onRestart()
     {
         super.onRestart();
-        Log.d("TwoActivities", "onRestart");
+        Log.d(LOG_TAG, "onRestart");
     }
 
     @Override
     protected void onDestroy()
     {
         super.onDestroy();
-        Log.d("TwoActivities", "onDestroy");
+        Log.d(LOG_TAG, "onDestroy");
     }
 }
