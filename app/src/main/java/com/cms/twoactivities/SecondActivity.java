@@ -25,7 +25,7 @@ public class SecondActivity extends AppCompatActivity
         TextView textView = findViewById(R.id.text_message);
         textView.setText(messageFromMain);
 
-        Log.d(LOG_TAG, "-------");
+        Log.d(LOG_TAG, "------");
         Log.d(LOG_TAG, "OnCreate");
     }
 

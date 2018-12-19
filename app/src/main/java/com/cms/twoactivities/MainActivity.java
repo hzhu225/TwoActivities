@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity
         headerText = findViewById(R.id.text_header_reply);
         replyText = findViewById(R.id.text_message_reply);
 
-        Log.d(LOG_TAG, "-------");
+        Log.d(LOG_TAG, "------");
         Log.d(LOG_TAG, "OnCreate");
 
         if(savedInstanceState != null)
